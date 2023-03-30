@@ -23,7 +23,7 @@ namespace TatBlog.Data.Mappings
             builder.Property(p => p.Description)
                 .HasMaxLength(5000)
                 .IsRequired();
-            builder.Property(p => p.Urlslug)
+            builder.Property(p => p.UrlSlug)
                 .HasMaxLength(200)
                 .IsRequired();
             builder.Property(p => p.Meta)
@@ -44,11 +44,11 @@ namespace TatBlog.Data.Mappings
                 .HasForeignKey(p => p.CategoryId)
                 .HasConstraintName("FK_Posts_Categories")
                 .OnDelete(DeleteBehavior.Cascade);
-			//builder.HasOne(p => p.Author)
-			//   .WithMany(a => a.Posts)
-			//  .HasForeignKey(p => p.Author)
-			//  .HasConstraintName("FK_Posts_Authors")
-			//  .OnDelete(DeleteBehavior.Cascade);
+			//builder.hasone(p => p.author)
+			// .withmany(a => a.posts)
+			//.hasforeignkey(p => p.author)
+			//.hasconstraintname("fk_posts_authors")
+			//.ondelete(deletebehavior.cascade);
             builder.HasMany(p => p.Tags)
                 .WithMany(t => t.Posts)
                 .UsingEntity(pt => pt.ToTable("PostTags"));
