@@ -136,7 +136,7 @@ public async Task<IPagedList<Post>> GetPagedPostAsync(
     int pageSize = 10,
     CancellationToken cancellationToken = default)
         {
-			return await FilterPosts(condition).ToPagedListAsync(
+			return await FilterPosts(condition).ToPagedListAsyny(
                 pageNumber, pageSize,
                 nameof(Post.PostedDate), "DESC",
                 cancellationToken
